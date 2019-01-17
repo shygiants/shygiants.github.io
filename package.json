@@ -1,0 +1,36 @@
+{
+  "name": "shygiants.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html -d docs/",
+    "deploy": "gh-pages -d docs -b master",
+    "serve": "serve -l tcp://0.0.0.0:5000 -s docs",
+    "clean": "rm -rf dist docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.10",
+    "@material/react-button": "^0.8.0",
+    "@material/react-icon-button": "^0.8.0",
+    "@material/react-material-icon": "^0.8.0",
+    "@tensorflow/tfjs": "^0.14.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@material/react-typography": "^0.8.0",
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-static-files-copy": "^2.0.0",
+    "posthtml-doctype": "^1.1.1"
+  },
+  "staticFiles": {
+    "staticPath": "public"
+  }
+}

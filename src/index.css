@@ -1,0 +1,71 @@
+@import '@material/react-typography/dist/typography.css';
+@import '@material/react-button/dist/button.css';
+@import '@material/react-icon-button/dist/icon-button.css';
+
+body {
+    color: white;
+    color: #FFD4B8;
+}
+
+.header {
+    position: fixed;
+    height: 64px;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    top: 24px;
+
+}
+
+.header .container {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header .mdc-icon-button {
+    margin-left: 8px;
+}
+
+@media (max-width: 600px) {
+    #header .mdc-icon-button {
+        display: none;
+    }
+}
+
+@media (max-width: 360px),
+(min-height: 320px) and (max-height: 360px) {
+    #header .mdc-typography--headline4 {
+        font-size: 1.5rem;
+        line-height: 1.625rem;
+    }
+}
+
+@media (max-height: 320px) {
+    #header .mdc-typography--headline4 {
+        font-size: 1.25rem;
+        line-height: 1.47rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 960px), (orientation: portrait) {
+    .container {
+        width: calc(100% - 32px);
+    }
+}
+
+@media (max-height: 600px) {
+    .header {
+        top: 0px;
+    }
+}
