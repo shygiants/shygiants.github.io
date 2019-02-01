@@ -33,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <ReactFullpage
+        anchors={['home', 'paper-implements']}
         navigation={false}
         fixedElements='.header'
         paddingTop='10px'
