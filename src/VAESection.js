@@ -90,7 +90,7 @@ export default class VAESection extends Component {
           <svg style={{width: length, height: length, position: 'absolute'}}>
             <polygon
               points={`2,${criteria / 5} ${criteria - 2},2 ${criteria - 2},${criteria - 2} 2,${criteria * 4 / 5}`}
-              style={{fill: 'transparent', stroke: 'black', strokeWidth: '2'}}
+              style={{fill: 'transparent', stroke: '#FFD4B8', strokeWidth: '2'}}
             />
           </svg>
           {size !== 'small' ? <Headline6>{decoderName}</Headline6> : <Body2>{decoderName}</Body2>}
