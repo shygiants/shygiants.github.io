@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import * as tf from '@tensorflow/tfjs';
-import {Box, Grommet} from 'grommet';
+import {Box, Grommet, ResponsiveContext} from 'grommet';
 import Button from '@material/react-button';
 import {
   Headline6,
+  Body2,
 } from '@material/react-typography';
 
 import TFCanvas from './TFCanvas.js'
@@ -64,37 +65,57 @@ export default class VAESection extends Component {
   }
 
   render() {
+    const line = size => {
+      const criteria = size !== 'small' ? 60 : 30;
+      const width = `${criteria}px`;
+      return (
+
+        <svg style={{width, height: '5px'}}>
+          <path d={`M 0 0 L ${criteria} 0`} style={{
+            stroke: 'rgb(175, 175, 175)',
+            strokeDasharray: '10,2',
+            strokeWidth: '5',
+          }}/>
+        </svg>
+      );
+    };
+
+    const decoder = size => {
+      const criteria = size !== 'small' ? 150 : 100;
+      const length = `${criteria}px`;
+      const decoderName = 'VAE Decoder';
+
+      return (
+        <Box align='center' justify='center' style={{width: length, height: length}}>
+          <svg style={{width: length, height: length, position: 'absolute'}}>
+            <polygon
+              points={`2,${criteria / 5} ${criteria - 2},2 ${criteria - 2},${criteria - 2} 2,${criteria * 4 / 5}`}
+              style={{fill: 'transparent', stroke: 'black', strokeWidth: '2'}}
+            />
+          </svg>
+          {size !== 'small' ? <Headline6>{decoderName}</Headline6> : <Body2>{decoderName}</Body2>}
+        </Box>
+      )
+    };
+
     return (
       <Section>
         <Grommet plain>
           <Box height='100vh'>
             <Box fill direction='column' justify='center' align='center'>
-              <Box fill='horizontal' direction='row' align='center' justify='center' margin='medium'>
-
+              <Box fill='horizontal' direction='row' align='center' justify='center' margin='medium' pad='small'>
                 <TFCanvas ref='noise'/>
-                <svg style={{width: '60px', height: '5px'}}>
-                  <path d='M 0 0 L 60 0' style={{
-                    stroke: 'rgb(175, 175, 175)',
-                    strokeDasharray: '10,2',
-                    strokeWidth: '5',
-                  }}/>
-                </svg>
-                <Box align='center' justify='center' style={{width: '150px', height: '150px'}}>
-                  <svg style={{width: '150px', height: '150px', position: 'absolute'}}>
-                    <polygon
-                      points="2,30 148,2 148,148 2,120"
-                      style={{fill: 'transparent', stroke: 'black', strokeWidth: '2'}}
-                    />
-                  </svg>
-                  <Headline6>VAE Decoder</Headline6>
-                </Box>
-                <svg style={{width: '60px', height: '5px'}}>
-                  <path d='M 0 0 L 60 0' style={{
-                    stroke: 'rgb(175, 175, 175)',
-                    strokeDasharray: '10,2',
-                    strokeWidth: '5',
-                  }}/>
-                </svg>
+
+                <ResponsiveContext.Consumer>
+                  {size => (
+                    <Box direction='row' align='center' justify='center'>
+                      {console.log(size)}
+                      {line(size)}
+                      {decoder(size)}
+                      {line(size)}
+                    </Box>
+                  )}</ResponsiveContext.Consumer>
+
                 <TFCanvas ref='sample' downloadable/>
 
               </Box>
