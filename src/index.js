@@ -9,6 +9,8 @@ import {
 import './index.css';
 
 import HomeSection from './HomeSection.js';
+import VAESection from './VAESection.js'
+import Section from "./Section";
 
 
 class App extends Component {
@@ -21,14 +23,14 @@ class App extends Component {
         loopHorizontal={false}
         resetSliders={true}
         slidesNavigation={true}
-        sectionsColor={['#F6EBE1', '#F6EBE1', '#F6EBE1', '#F6EBE1']}
         render={({state, fullpageApi}) => {
           return (
             <ReactFullpage.Wrapper>
               <div id='header' className='header'>
                 <div className='container'>
                   <Headline4>Sanghoon Yoon</Headline4>
-                  <IconButton style={{marginLeft:'auto'}} isLink={true} href='https://github.com/shygiants' target='_blank'>
+                  <IconButton style={{marginLeft: 'auto'}} isLink={true} href='https://github.com/shygiants'
+                              target='_blank'>
                     <i className="fab fa-github"></i>
                   </IconButton>
                   <IconButton isLink={true} href='https://www.linkedin.com/in/shygiants/' target='_blank'>
@@ -43,6 +45,7 @@ class App extends Component {
                 </div>
               </div>
               <HomeSection/>
+              <VAESection/>
             </ReactFullpage.Wrapper>
           );
         }}

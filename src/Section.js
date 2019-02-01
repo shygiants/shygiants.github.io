@@ -4,7 +4,9 @@ import './Section.css';
 
 class Section extends Component {
   getStyle() {
-    if (this.props.bgImgURL === undefined) return null;
+    if (this.props.bgImgURL === undefined) return {
+      background: 'linear-gradient(to left bottom, #F2538C,#4A8E8F)'
+    };
 
     return {
       backgroundImage: `url(${this.props.bgImgURL})`,
