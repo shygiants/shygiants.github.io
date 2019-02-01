@@ -14,6 +14,22 @@ import Section from "./Section";
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: 'Sanghoon Yoon'
+    };
+
+    this.titleMap = ['Sanghoon Yoon', 'Paper Implements']
+  }
+
+  afterLoad(origin, destination, direction) {
+    this.setState({
+      title: this.titleMap[destination.index],
+    });
+  }
+
   render() {
     return (
       <ReactFullpage
@@ -23,12 +39,13 @@ class App extends Component {
         loopHorizontal={false}
         resetSliders={true}
         slidesNavigation={true}
+        afterLoad={this.afterLoad.bind(this)}
         render={({state, fullpageApi}) => {
           return (
             <ReactFullpage.Wrapper>
               <div id='header' className='header'>
                 <div className='container'>
-                  <Headline4>Sanghoon Yoon</Headline4>
+                  <Headline4>{this.state.title}</Headline4>
                   <IconButton style={{marginLeft: 'auto'}} isLink={true} href='https://github.com/shygiants'
                               target='_blank'>
                     <i className="fab fa-github"></i>
