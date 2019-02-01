@@ -95,7 +95,7 @@ export default class VAESection extends Component {
                     strokeWidth: '5',
                   }}/>
                 </svg>
-                <TFCanvas ref='sample'/>
+                <TFCanvas ref='sample' downloadable/>
 
               </Box>
               <Box margin='small' direction='row'>
@@ -106,7 +106,8 @@ export default class VAESection extends Component {
                 </Box>
                 <Box margin='xsmall'>
                   <Button outlined icon={<i className="fab fa-github"></i>}
-                          href='https://github.com/shygiants/generative-models/blob/master/src/models/VAE.md' target='_blank'
+                          href='https://github.com/shygiants/generative-models/blob/master/src/models/VAE.md'
+                          target='_blank'
                           style={{color: '#BBC086', borderColor: '#BBC086'}}>
                     Code
                   </Button>
