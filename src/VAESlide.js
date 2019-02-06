@@ -8,9 +8,9 @@ import {
 } from '@material/react-typography';
 
 import TFCanvas from './TFCanvas.js'
-import Section from "./Section.js";
+import Slide from "./Slide.js";
 
-export default class VAESection extends Component {
+export default class VAESlide extends Component {
   constructor(props) {
     super(props);
 
@@ -99,7 +99,7 @@ export default class VAESection extends Component {
     };
 
     return (
-      <Section>
+      <Slide anchor='vae'>
         <Grommet plain>
           <Box height='100vh'>
             <Box fill direction='column' justify='center' align='center'>
@@ -137,7 +137,7 @@ export default class VAESection extends Component {
             </Box>
           </Box>
         </Grommet>
-      </Section>
+      </Slide>
     );
   }
 }

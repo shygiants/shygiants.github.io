@@ -9,8 +9,9 @@ import {
 import './index.css';
 
 import HomeSection from './HomeSection.js';
-import VAESection from './VAESection.js'
-import Section from "./Section";
+import VAESlide from './VAESlide.js'
+import GANSlide from './GANSlide.js'
+import Section from "./Section.js";
 
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
   render() {
     return (
       <ReactFullpage
+        licenseKey={process.env.REACT_APP_LICENSE_KEY}
         anchors={['home', 'paper-implements']}
         navigation={false}
         fixedElements='.header'
@@ -40,6 +42,7 @@ class App extends Component {
         loopHorizontal={false}
         resetSliders={true}
         slidesNavigation={true}
+        controlArrows={false}
         afterLoad={this.afterLoad.bind(this)}
         render={({state, fullpageApi}) => {
           return (
@@ -63,7 +66,10 @@ class App extends Component {
                 </div>
               </div>
               <HomeSection/>
-              <VAESection/>
+              <Section>
+                <GANSlide/>
+                <VAESlide/>
+              </Section>
             </ReactFullpage.Wrapper>
           );
         }}
