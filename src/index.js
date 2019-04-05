@@ -57,7 +57,7 @@ class App extends Component {
                   <IconButton isLink={true} href='https://www.linkedin.com/in/shygiants/' target='_blank'>
                     <i className="fab fa-linkedin-in"></i>
                   </IconButton>
-                  <IconButton isLink={true} href='https://www.instagram.com/shygiants/' target='_blank'>
+                  <IconButton isLink={true} href='https://www.instagram.com/shy_ai/' target='_blank'>
                     <i className="fab fa-instagram"></i>
                   </IconButton>
                   <IconButton isLink={true} href='https://www.facebook.com/shygiants' target='_blank'>
